@@ -79,6 +79,7 @@
                 <a href="#gallery" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navGallery">Galeria</a>
                 <a href="#videos" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navVideos">Vídeos</a>
                 <a href="#planner" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navPlanner">Planejador</a>
+                <a href="#local-tips" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navTips">Dicas Locais</a>
                 <a href="#location" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navLocation">Localização</a>
                 <div class="flex items-center space-x-3">
                     <button class="lang-btn text-sm" data-lang="pt">PT</button>
@@ -103,6 +104,7 @@
             <a href="#gallery" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navGallery">Galeria</a>
             <a href="#videos" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navVideos">Vídeos</a>
             <a href="#planner" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navPlanner">Planejador</a>
+            <a href="#local-tips" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navTips">Dicas Locais</a>
             <a href="#location" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navLocation">Localização</a>
             <a href="https://wa.me/556599237297" target="_blank" class="block py-3 px-6 text-gray-600 hover:bg-gray-100 bg-green-50 text-green-700 font-semibold" data-lang-key="navReserveWP">Reservar via WhatsApp</a>
             <div class="flex justify-center space-x-4 py-3 border-t">
@@ -278,10 +280,36 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Local Tips AI Section -->
+        <section id="local-tips" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-800" data-lang-key="tipsTitle">Dicas Locais com IA ✨</h2>
+                    <p class="text-gray-600 mt-2" data-lang-key="tipsSubtitle">Tem alguma dúvida sobre Lambari D'Oeste? Pergunte ao nosso guia local virtual!</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md reveal">
+                    <form id="tips-form">
+                        <div class="mb-6">
+                            <label for="question" class="block text-gray-700 font-semibold mb-2" data-lang-key="tipsQuestionLabel">Sua pergunta:</label>
+                            <input type="text" id="question" name="question" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: Onde encontro o melhor peixe frito?">
+                        </div>
+                        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+                            <span data-lang-key="tipsButton">✨ Obter Dica</span>
+                        </button>
+                    </form>
+                    <div id="tips-loader" class="hidden loader"></div>
+                    <div id="tips-result" class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200 prose max-w-none">
+                        <!-- AI-generated tip will appear here -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
         <!-- Location Section -->
-        <section id="location" class="py-16 md:py-24 bg-gray-50">
+        <section id="location" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 <div class="reveal">
                     <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4" data-lang-key="locationTitle">Nossa Localização</h2>
@@ -342,6 +370,7 @@
                 navGallery: "Galeria",
                 navVideos: "Vídeos",
                 navPlanner: "Planejador",
+                navTips: "Dicas Locais",
                 navLocation: "Localização",
                 navReserve: "Reservar Agora",
                 navReserveWP: "Reservar via WhatsApp",
@@ -380,6 +409,12 @@
                 plannerButton: "✨ Gerar Roteiro com IA",
                 itineraryLoading: "Gerando seu roteiro personalizado... Aguarde um momento.",
                 itineraryError: "Desculpe, não foi possível gerar o roteiro no momento. Por favor, tente novamente mais tarde.",
+                tipsTitle: "Dicas Locais com IA ✨",
+                tipsSubtitle: "Tem alguma dúvida sobre Lambari D'Oeste? Pergunte ao nosso guia local virtual!",
+                tipsQuestionLabel: "Sua pergunta:",
+                tipsButton: "✨ Obter Dica",
+                tipsError: "Desculpe, não foi possível obter a dica no momento. Tente novamente.",
+                questionPlaceholder: "Ex: Onde encontro o melhor peixe frito?",
                 locationTitle: "Nossa Localização",
                 locationDesc: "Estamos convenientemente localizados no coração de Lambari D'Oeste, com fácil acesso aos principais pontos da cidade e da região. O refúgio perfeito para sua viagem.",
                 locationAddr: "Centro, Lambari D'Oeste - MT",
@@ -392,6 +427,7 @@
                 navGallery: "Gallery",
                 navVideos: "Videos",
                 navPlanner: "Planner",
+                navTips: "Local Tips",
                 navLocation: "Location",
                 navReserve: "Book Now",
                 navReserveWP: "Book via WhatsApp",
@@ -430,6 +466,12 @@
                 plannerButton: "✨ Generate Itinerary with AI",
                 itineraryLoading: "Generating your custom itinerary... Please wait a moment.",
                 itineraryError: "Sorry, we couldn't generate the itinerary at this time. Please try again later.",
+                tipsTitle: "Local Tips with AI ✨",
+                tipsSubtitle: "Have a question about Lambari D'Oeste? Ask our virtual local guide!",
+                tipsQuestionLabel: "Your question:",
+                tipsButton: "✨ Get Tip",
+                tipsError: "Sorry, we couldn't get the tip at this time. Please try again.",
+                questionPlaceholder: "E.g., Where can I find the best fried fish?",
                 locationTitle: "Our Location",
                 locationDesc: "We are conveniently located in the heart of Lambari D'Oeste, with easy access to the main points of the city and region. The perfect retreat for your trip.",
                 locationAddr: "Downtown, Lambari D'Oeste - MT",
@@ -442,6 +484,7 @@
                 navGallery: "Galería",
                 navVideos: "Videos",
                 navPlanner: "Planificador",
+                navTips: "Consejos Locales",
                 navLocation: "Ubicación",
                 navReserve: "Reservar Ahora",
                 navReserveWP: "Reservar por WhatsApp",
@@ -480,6 +523,12 @@
                 plannerButton: "✨ Generar Itinerario con IA",
                 itineraryLoading: "Generando su itinerario personalizado... Por favor, espere un momento.",
                 itineraryError: "Lo sentimos, no pudimos generar el itinerario en este momento. Por favor, inténtelo de nuevo más tarde.",
+                tipsTitle: "Consejos Locales con IA ✨",
+                tipsSubtitle: "¿Tienes alguna pregunta sobre Lambari D'Oeste? ¡Pregúntale a nuestro guía local virtual!",
+                tipsQuestionLabel: "Tu pregunta:",
+                tipsButton: "✨ Obtener Consejo",
+                tipsError: "Lo sentimos, no se pudo obtener el consejo en este momento. Inténtalo de nuevo.",
+                questionPlaceholder: "Ej: ¿Dónde encuentro el mejor pescado frito?",
                 locationTitle: "Nuestra Ubicación",
                 locationDesc: "Estamos convenientemente ubicados en el corazón de Lambari D'Oeste, con fácil acceso a los principales puntos de la ciudad y la región. El refugio perfecto para su viaje.",
                 locationAddr: "Centro, Lambari D'Oeste - MT",
@@ -522,12 +571,12 @@
             revealObserver.observe(el);
         });
         
+        let currentLanguage = 'pt';
+
         // --- Gemini API Itinerary Planner ---
         const plannerForm = document.getElementById('planner-form');
         const itineraryResult = document.getElementById('itinerary-result');
         const loader = document.getElementById('loader');
-        
-        let currentLanguage = 'pt';
 
         plannerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -589,6 +638,64 @@
             }
         });
 
+        // --- Gemini API Local Tips ---
+        const tipsForm = document.getElementById('tips-form');
+        const questionInput = document.getElementById('question');
+        const tipsResult = document.getElementById('tips-result');
+        const tipsLoader = document.getElementById('tips-loader');
+
+        tipsForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const question = questionInput.value;
+            if (!question.trim()) {
+                return; // Don't submit if empty
+            }
+
+            tipsResult.innerHTML = '';
+            tipsLoader.classList.remove('hidden');
+
+            const systemPrompt = "Você é um guia local amigável e experiente em Lambari D'Oeste, Mato Grosso, Brasil. Você trabalha para o Hotel Alves. Responda às perguntas dos turistas de forma concisa, útil e calorosa. Se a pergunta for sobre algo que não existe na cidade, seja honesto e sugira alternativas próximas, se possível. Mantenha as respostas curtas, em um ou dois parágrafos.";
+
+            try {
+                const apiKey = ""; // API key will be provided by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{
+                        parts: [{
+                            text: question
+                        }]
+                    }],
+                    systemInstruction: {
+                        parts: [{
+                            text: systemPrompt
+                        }]
+                    },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const text = result.candidates[0].content.parts[0].text;
+                
+                tipsResult.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+
+            } catch (error) {
+                console.error('Error calling Gemini API for tips:', error);
+                tipsResult.innerHTML = `<p class="text-red-600">${translations[currentLanguage].tipsError}</p>`;
+            } finally {
+                tipsLoader.classList.add('hidden');
+            }
+        });
+
 
         // Language Switcher
         const langButtons = document.querySelectorAll('.lang-btn');
@@ -610,6 +717,12 @@
             
             // Set HTML lang attribute
             document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+
+            // Update placeholder text for tips input
+            const questionInputEl = document.getElementById('question');
+            if (questionInputEl) {
+                questionInputEl.placeholder = translations[lang].questionPlaceholder || '';
+            }
         };
 
         langButtons.forEach(button => {
