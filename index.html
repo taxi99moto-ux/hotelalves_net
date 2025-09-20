@@ -37,6 +37,34 @@
             color: #2563EB; /* blue-600 */
             text-decoration: underline;
         }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Loading spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -46,8 +74,11 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-blue-800">Hotel Alves</a>
             <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navAbout">Sobre</a>
                 <a href="#services" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navServices">Serviços</a>
                 <a href="#gallery" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navGallery">Galeria</a>
+                <a href="#videos" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navVideos">Vídeos</a>
+                <a href="#planner" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navPlanner">Planejador</a>
                 <a href="#location" class="text-gray-600 hover:text-blue-800 transition duration-300" data-lang-key="navLocation">Localização</a>
                 <div class="flex items-center space-x-3">
                     <button class="lang-btn text-sm" data-lang="pt">PT</button>
@@ -67,8 +98,11 @@
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#about" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navAbout">Sobre</a>
             <a href="#services" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navServices">Serviços</a>
             <a href="#gallery" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navGallery">Galeria</a>
+            <a href="#videos" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navVideos">Vídeos</a>
+            <a href="#planner" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navPlanner">Planejador</a>
             <a href="#location" class="block py-3 px-6 text-gray-600 hover:bg-gray-100" data-lang-key="navLocation">Localização</a>
             <a href="https://wa.me/556599237297" target="_blank" class="block py-3 px-6 text-gray-600 hover:bg-gray-100 bg-green-50 text-green-700 font-semibold" data-lang-key="navReserveWP">Reservar via WhatsApp</a>
             <div class="flex justify-center space-x-4 py-3 border-t">
@@ -116,37 +150,37 @@
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service Item -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center reveal">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center reveal">
                         <i data-feather="wifi" class="h-12 w-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceWifiTitle">Wi-Fi Gratuito</h3>
                         <p class="text-gray-600" data-lang-key="serviceWifiDesc">Conectividade de alta velocidade em todas as áreas do hotel.</p>
                     </div>
                     <!-- Service Item -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 150ms;">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 150ms;">
                         <i data-feather="coffee" class="h-12 w-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceBreakfastTitle">Café da Manhã</h3>
                         <p class="text-gray-600" data-lang-key="serviceBreakfastDesc">Comece o dia com um delicioso café regional preparado na hora.</p>
                     </div>
                     <!-- Service Item -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 300ms;">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 300ms;">
                         <i data-feather="user-check" class="h-12 w-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceReceptionTitle">Recepção 24 Horas</h3>
                         <p class="text-gray-600" data-lang-key="serviceReceptionDesc">Nossa equipe está sempre pronta para atender você a qualquer momento.</p>
                     </div>
                      <!-- Service Item -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 450ms;">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 450ms;">
                         <i data-feather="wind" class="h-12 w-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceAcTitle">Quartos Climatizados</h3>
                         <p class="text-gray-600" data-lang-key="serviceAcDesc">Ambientes confortáveis com ar-condicionado para o seu descanso.</p>
                     </div>
                      <!-- Service Item -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 600ms;">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 600ms;">
                         <i data-feather="truck" class="h-12 w-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceParkingTitle">Estacionamento</h3>
                         <p class="text-gray-600" data-lang-key="serviceParkingDesc">Segurança e conveniência com estacionamento incluso na sua diária.</p>
                     </div>
                      <!-- Service Item -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 750ms;">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-center reveal" style="transition-delay: 750ms;">
                         <i data-feather="trash-2" class="h-12 w-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceCleaningTitle">Limpeza Diária</h3>
                         <p class="text-gray-600" data-lang-key="serviceCleaningDesc">Nossos quartos são cuidadosamente limpos todos os dias para seu conforto.</p>
@@ -156,7 +190,7 @@
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="py-16 md:py-24 bg-gray-50">
+        <section id="gallery" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 reveal">
                     <h2 class="text-3xl md:text-4xl font-bold text-blue-800" data-lang-key="galleryTitle">Nossa Estrutura</h2>
@@ -183,8 +217,71 @@
             </div>
         </section>
 
+        <!-- Videos Section -->
+        <section id="videos" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-800" data-lang-key="videosTitle">Explore a Região</h2>
+                    <p class="text-gray-600 mt-2" data-lang-key="videosSubtitle">Descubra as belezas naturais e a cultura de Lambari D'Oeste e arredores.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="reveal">
+                        <div class="video-container rounded-lg shadow-lg overflow-hidden">
+                            <iframe src="https://www.youtube.com/embed/z4e12-gcpkM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="reveal" style="transition-delay: 150ms;">
+                        <div class="video-container rounded-lg shadow-lg overflow-hidden">
+                            <iframe src="https://www.youtube.com/embed/S2g-G6R2nK0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Planner Section -->
+        <section id="planner" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-800" data-lang-key="plannerTitle">Planejador de Roteiro ✨</h2>
+                    <p class="text-gray-600 mt-2" data-lang-key="plannerSubtitle">Deixe nossa IA criar o roteiro perfeito para sua visita a Lambari D'Oeste!</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md reveal">
+                    <form id="planner-form">
+                        <div class="mb-6">
+                            <label for="days" class="block text-gray-700 font-semibold mb-2" data-lang-key="plannerDaysLabel">Quantos dias você ficará?</label>
+                            <select id="days" name="days" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="1">1 dia</option>
+                                <option value="2">2 dias</option>
+                                <option value="3" selected>3 dias</option>
+                                <option value="5">5 dias</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-semibold mb-2" data-lang-key="plannerInterestsLabel">Quais são seus interesses?</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label class="inline-flex items-center"><input type="checkbox" name="interests" value="Pesca" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700" data-lang-key="interestFishing">Pesca</span></label></div>
+                                <div><label class="inline-flex items-center"><input type="checkbox" name="interests" value="Natureza" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700" data-lang-key="interestNature">Natureza</span></label></div>
+                                <div><label class="inline-flex items-center"><input type="checkbox" name="interests" value="Relaxamento" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700" data-lang-key="interestRelax">Relaxamento</span></label></div>
+                                <div><label class="inline-flex items-center"><input type="checkbox" name="interests" value="Cultura Local" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700" data-lang-key="interestCulture">Cultura Local</span></label></div>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+                            <span data-lang-key="plannerButton">✨ Gerar Roteiro com IA</span>
+                        </button>
+                    </form>
+                    <div id="loader" class="hidden loader"></div>
+                    <div id="itinerary-result" class="mt-8 p-6 bg-white rounded-lg border border-gray-200 prose max-w-none">
+                        <!-- AI-generated itinerary will appear here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Location Section -->
-        <section id="location" class="py-16 md:py-24 bg-white">
+        <section id="location" class="py-16 md:py-24 bg-gray-50">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 <div class="reveal">
                     <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4" data-lang-key="locationTitle">Nossa Localização</h2>
@@ -223,10 +320,11 @@
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-8 text-center">
             <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://www.facebook.com/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                <!-- NOTA: Substitua '#' pelos links reais das redes sociais quando disponíveis -->
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
                     <i data-feather="facebook" class="h-6 w-6"></i>
                 </a>
-                <a href="https://www.instagram.com/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
                     <i data-feather="instagram" class="h-6 w-6"></i>
                 </a>
             </div>
@@ -239,8 +337,11 @@
         // Translations Object
         const translations = {
             pt: {
+                navAbout: "Sobre",
                 navServices: "Serviços",
                 navGallery: "Galeria",
+                navVideos: "Vídeos",
+                navPlanner: "Planejador",
                 navLocation: "Localização",
                 navReserve: "Reservar Agora",
                 navReserveWP: "Reservar via WhatsApp",
@@ -266,6 +367,19 @@
                 serviceCleaningDesc: "Nossos quartos são cuidadosamente limpos todos os dias para seu conforto.",
                 galleryTitle: "Nossa Estrutura",
                 gallerySubtitle: "Espaços pensados para o seu bem-estar.",
+                videosTitle: "Explore a Região",
+                videosSubtitle: "Descubra as belezas naturais e a cultura de Lambari D'Oeste e arredores.",
+                plannerTitle: "Planejador de Roteiro ✨",
+                plannerSubtitle: "Deixe nossa IA criar o roteiro perfeito para sua visita a Lambari D'Oeste!",
+                plannerDaysLabel: "Quantos dias você ficará?",
+                plannerInterestsLabel: "Quais são seus interesses?",
+                interestFishing: "Pesca",
+                interestNature: "Natureza",
+                interestRelax: "Relaxamento",
+                interestCulture: "Cultura Local",
+                plannerButton: "✨ Gerar Roteiro com IA",
+                itineraryLoading: "Gerando seu roteiro personalizado... Aguarde um momento.",
+                itineraryError: "Desculpe, não foi possível gerar o roteiro no momento. Por favor, tente novamente mais tarde.",
                 locationTitle: "Nossa Localização",
                 locationDesc: "Estamos convenientemente localizados no coração de Lambari D'Oeste, com fácil acesso aos principais pontos da cidade e da região. O refúgio perfeito para sua viagem.",
                 locationAddr: "Centro, Lambari D'Oeste - MT",
@@ -273,8 +387,11 @@
                 footerSlogan: "Sua melhor opção de hospedagem em Lambari D'Oeste, MT."
             },
             en: {
+                navAbout: "About",
                 navServices: "Services",
                 navGallery: "Gallery",
+                navVideos: "Videos",
+                navPlanner: "Planner",
                 navLocation: "Location",
                 navReserve: "Book Now",
                 navReserveWP: "Book via WhatsApp",
@@ -300,6 +417,19 @@
                 serviceCleaningDesc: "Our rooms are carefully cleaned every day for your comfort.",
                 galleryTitle: "Our Facilities",
                 gallerySubtitle: "Spaces designed for your well-being.",
+                videosTitle: "Explore the Region",
+                videosSubtitle: "Discover the natural beauty and culture of Lambari D'Oeste and its surroundings.",
+                plannerTitle: "Itinerary Planner ✨",
+                plannerSubtitle: "Let our AI create the perfect itinerary for your visit to Lambari D'Oeste!",
+                plannerDaysLabel: "How many days will you stay?",
+                plannerInterestsLabel: "What are your interests?",
+                interestFishing: "Fishing",
+                interestNature: "Nature",
+                interestRelax: "Relaxation",
+                interestCulture: "Local Culture",
+                plannerButton: "✨ Generate Itinerary with AI",
+                itineraryLoading: "Generating your custom itinerary... Please wait a moment.",
+                itineraryError: "Sorry, we couldn't generate the itinerary at this time. Please try again later.",
                 locationTitle: "Our Location",
                 locationDesc: "We are conveniently located in the heart of Lambari D'Oeste, with easy access to the main points of the city and region. The perfect retreat for your trip.",
                 locationAddr: "Downtown, Lambari D'Oeste - MT",
@@ -307,8 +437,11 @@
                 footerSlogan: "Your best accommodation option in Lambari D'Oeste, MT."
             },
             es: {
+                navAbout: "Sobre",
                 navServices: "Servicios",
                 navGallery: "Galería",
+                navVideos: "Videos",
+                navPlanner: "Planificador",
                 navLocation: "Ubicación",
                 navReserve: "Reservar Ahora",
                 navReserveWP: "Reservar por WhatsApp",
@@ -334,6 +467,19 @@
                 serviceCleaningDesc: "Nuestras habitaciones se limpian cuidadosamente todos los días para su comodidad.",
                 galleryTitle: "Nuestras Instalaciones",
                 gallerySubtitle: "Espacios pensados para su bienestar.",
+                videosTitle: "Explore la Región",
+                videosSubtitle: "Descubra la belleza natural y la cultura de Lambari D'Oeste y sus alrededores.",
+                plannerTitle: "Planificador de Itinerario ✨",
+                plannerSubtitle: "¡Deja que nuestra IA cree el itinerario perfecto para tu visita a Lambari D'Oeste!",
+                plannerDaysLabel: "¿Cuántos días te quedarás?",
+                plannerInterestsLabel: "¿Cuáles son tus intereses?",
+                interestFishing: "Pesca",
+                interestNature: "Naturaleza",
+                interestRelax: "Relajación",
+                interestCulture: "Cultura Local",
+                plannerButton: "✨ Generar Itinerario con IA",
+                itineraryLoading: "Generando su itinerario personalizado... Por favor, espere un momento.",
+                itineraryError: "Lo sentimos, no pudimos generar el itinerario en este momento. Por favor, inténtelo de nuevo más tarde.",
                 locationTitle: "Nuestra Ubicación",
                 locationDesc: "Estamos convenientemente ubicados en el corazón de Lambari D'Oeste, con fácil acceso a los principales puntos de la ciudad y la región. El refugio perfecto para su viaje.",
                 locationAddr: "Centro, Lambari D'Oeste - MT",
@@ -375,12 +521,81 @@
         revealElements.forEach(el => {
             revealObserver.observe(el);
         });
+        
+        // --- Gemini API Itinerary Planner ---
+        const plannerForm = document.getElementById('planner-form');
+        const itineraryResult = document.getElementById('itinerary-result');
+        const loader = document.getElementById('loader');
+        
+        let currentLanguage = 'pt';
+
+        plannerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const days = document.getElementById('days').value;
+            const selectedInterests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value);
+
+            if (selectedInterests.length === 0) {
+                // You can add a message asking the user to select at least one interest
+                return;
+            }
+            
+            itineraryResult.innerHTML = '';
+            loader.classList.remove('hidden');
+
+            const prompt = `Crie um roteiro de ${days} dia(s) para um turista em Lambari D'Oeste, Mato Grosso. Os interesses principais são: ${selectedInterests.join(', ')}. O roteiro deve incluir sugestões de atividades, locais para visitar e dicas de restaurantes na região. Apresente o roteiro de forma clara, dia por dia. Use uma linguagem amigável e convidativa. Formate a resposta com markdown, usando títulos para cada dia.`;
+            
+            try {
+                const apiKey = ""; // API key will be provided by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                  contents: [{
+                    parts: [{
+                      text: prompt
+                    }]
+                  }],
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const text = result.candidates[0].content.parts[0].text;
+                
+                // Simple markdown to HTML conversion
+                let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
+                html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');       // Italic
+                html = html.replace(/^(#+)\s*(.*)$/gm, (match, hashes, content) => {
+                    const level = hashes.length;
+                    return `<h${level+1} class="text-xl font-bold mt-4 mb-2">${content}</h${level+1}>`;
+                });
+                html = html.replace(/\n/g, '<br>');
+                
+                itineraryResult.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                itineraryResult.innerHTML = `<p class="text-red-600">${translations[currentLanguage].itineraryError}</p>`;
+            } finally {
+                loader.classList.add('hidden');
+            }
+        });
+
 
         // Language Switcher
         const langButtons = document.querySelectorAll('.lang-btn');
         const translatableElements = document.querySelectorAll('[data-lang-key]');
 
         const setLanguage = (lang) => {
+            currentLanguage = lang; // Store current language for the planner error message
             translatableElements.forEach(el => {
                 const key = el.getAttribute('data-lang-key');
                 if (translations[lang] && translations[lang][key]) {
@@ -411,5 +626,4 @@
 
 </body>
 </html>
-
 
